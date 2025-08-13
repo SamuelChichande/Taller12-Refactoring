@@ -10,8 +10,10 @@ public class EmpleadoFijo extends Empleado {
 
     @Override
     public void imprimirDetalles() {
-        super.imprimirDetalles();
-        System.out.println("Bono anual: " + bonoAnual); 
+        super.imprimirDetalles();;
+        System.out.println("Horas trabajadas: " + super.getHorasTrabajadas());
+        System.out.println("Departamento: " + super.getDepartamento());
+        System.out.println("bonoAnual: " + bonoAnual);
     }
 
 
