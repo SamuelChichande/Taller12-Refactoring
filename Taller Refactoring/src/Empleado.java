@@ -15,18 +15,24 @@ public class Empleado {
     }
 
     public double calcularSalario() {
-        double salarioTotal = salarioBase;
-        
         validacion();
-
-        if (horasTrabajadas > 40) {
-           salarioTotal += (horasTrabajadas - 40) * 50; // Pago de horas extra
-        }
-
-        salarioTotal += departamento.getSalarioDepartamento();
-
+        double salarioTotal = salarioBase;
+        salarioTotal += calcularHorasExtra();
+        salarioTotal += obtenerBonificacionDepartamento();
         return salarioTotal;
     }
+
+    private double calcularHorasExtra() {
+        if (horasTrabajadas > 40) {
+            return (horasTrabajadas - 40) * 50;
+        }
+        return 0;
+    }
+
+    private double obtenerBonificacionDepartamento() {
+        return departamento.getSalarioDepartamento();
+    }
+
 
     public void validacion (){
         if (salarioBase < 0) {
@@ -87,3 +93,4 @@ public class Empleado {
         System.out.println("Salario: " + salarioBase);
     }
 }
+
